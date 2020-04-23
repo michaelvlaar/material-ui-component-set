@@ -11,7 +11,6 @@
     const { env } = B;
     const isDev = env === 'dev';
 
-
     const BottomNavigationActionComponent = (
       <B.Link endpoint={linkTo} className={classes.a}>
         <BottomNavigationAction

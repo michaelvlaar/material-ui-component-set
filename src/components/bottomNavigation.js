@@ -10,9 +10,7 @@
       Favorite: FavoriteIcon,
       Location: LocationCityIcon,
     } = window.MaterialUI.Icons;
-    const {
-      showLabel
-    } = options;
+    const { showLabel } = options;
     const { env, Children } = B;
     const isDev = env === 'dev';
     const [value, setValue] = useState(null);
