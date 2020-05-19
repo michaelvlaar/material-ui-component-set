@@ -29,13 +29,13 @@ jobs:
 
     - stage: deploy
       name: 'Publish Component Set'
-      if: branch = master AND type != pull_request
+      if: branch = version-test AND type != pull_request
       deploy:
         provider: script
         skip_cleanup: true
         before_script:
           - yarn
         script:
-          - yarn build && yarn bundle && yarn upload && npx semantic-release
+          - yarn build && yarn bundle && npx semantic-release
         on:
-          branch: master
+          branch: version-test
