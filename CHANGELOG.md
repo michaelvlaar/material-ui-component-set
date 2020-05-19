@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/bettyblocks/material-ui-component-set/compare/v1.0.0...v1.0.1) (2020-05-19)
+
+
+### Bug Fixes
+
+* disable npm publish ([5561184](https://github.com/bettyblocks/material-ui-component-set/commit/5561184af19fec2f1468d5a0c3f7525696b9fe79))
+
 # 1.0.0 (2020-05-19)
 
 
