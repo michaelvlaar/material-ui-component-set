@@ -21,6 +21,10 @@
       visible,
       actionId,
       buttonText,
+      buttonType,
+      isBtnShadow,
+      isNoPadding,
+      isNoMinWidth,
     } = options;
 
     const { env, useText } = B;
@@ -30,6 +34,7 @@
     const hasExternalLink = linkToExternal && linkToExternal.id !== '';
     const isIcon = variant === 'icon';
     const buttonContent = useText(buttonText);
+    const buttonTypes = {'round': '', 'pill': 'MuiButton-pill' ,'square': 'MuiButton-square'}
 
     const generalProps = {
       disabled,
@@ -45,6 +50,7 @@
       ...generalProps,
       classes: { root: classes.root },
       classname: visible || isDev ? '' : classes.hide,
+
     };
 
     const buttonProps = {
@@ -59,6 +65,10 @@
       className: [
         visible || isDev ? '' : classes.hide,
         buttonContent ? '' : classes.empty,
+        isBtnShadow ? '' : 'MuiButton-flat',
+        isNoPadding ? 'noPadding' : '',
+        isNoMinWidth ? 'noMinWidth' : '',
+        buttonTypes[buttonType],
       ].join(' '),
       type: isDev ? 'button' : type,
     };
@@ -82,6 +92,7 @@
         {isIcon
           ? React.createElement(Icons[icon === 'None' ? 'Error' : icon], {
               fontSize: size,
+              padding: '6px 10px',
             })
           : buttonContent}
       </Button>
@@ -145,6 +156,24 @@
           style.getColor(variant === 'icon' ? background : textColor),
           '!important',
         ],
+        '& .MuiButton-label': {
+          textTransform: ({options: {textTransform}}) => textTransform,
+        },
+        '&.MuiButton-root.MuiButton-flat': {
+          boxShadow: 'none',
+        },
+        '&.MuiButton-root.MuiButton-pill': {
+          borderRadius: '50px',
+        },
+        '&.MuiButton-root.MuiButton-square': {
+          borderRadius: '0px',
+        },
+        '&.MuiButton-root.noPadding': {
+          padding: 0,
+        },
+        '&.MuiButton-root.noMinWidth': {
+          minWidth: 0,
+        },
         '&.MuiButton-root, &.MuiIconButton-root': {
           width: ({ options: { fullWidth, outerSpacing } }) => {
             if (!fullWidth) return 'auto';
