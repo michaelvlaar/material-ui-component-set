@@ -52,8 +52,10 @@
     "@material-ui/pickers": "^3.2.10",
     "@material-ui/styles": "^4.9.10",
     "date-fns": "^2.11.0",
+    "i18next": "^19.6.3",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-i18next": "^11.7.0"
   },
   "repository": {
     "type": "git",

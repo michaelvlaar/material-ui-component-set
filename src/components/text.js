@@ -4,6 +4,21 @@
   allowedTypes: [],
   orientation: 'HORIZONTAL',
   jsx: (() => {
+    if (B.env !== 'dev') {
+      var lang = localStorage.getItem('language');
+      if (lang == '') {
+        lang = 'en';
+      }
+
+      var t = window.I18n.getFixedT(lang);
+
+      for (var i = 0; i < options.content.length; i++) {
+        if (typeof options.content[i] == 'string') {
+          options.content[i] = t(options.content[i]);
+        }
+      }
+    }
+
     const Tag = {
       Title1: 'h1',
       Title2: 'h2',
